@@ -13,5 +13,7 @@ namespace shopping_app.Data
 
         // Add your tables here (DbSet)
         public DbSet<CustomerModel> Customers { get; set; }
+        public DbSet<CustomerCoupon> Customer_Coupons { get; set; }
+        
     }
 }

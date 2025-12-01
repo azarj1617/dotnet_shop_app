@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using shopping_app.Data;
+using shopping_app.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<shopping_app.Interfaces.ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerCoupon, CustomerCoupons>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

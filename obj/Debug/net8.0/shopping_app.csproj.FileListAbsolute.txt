@@ -145,3 +145,4 @@ D:\Dotnet\DN-Backend\shopping_app\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagge
 D:\Dotnet\DN-Backend\shopping_app\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Dotnet\DN-Backend\shopping_app\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Dotnet\DN-Backend\shopping_app\obj\Debug\net8.0\shopping_app.MvcApplicationPartsAssemblyInfo.cs
+D:\Dotnet\DN-Backend\shopping_app\obj\Debug\net8.0\shopping_app.sourcelink.json
