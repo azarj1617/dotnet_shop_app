@@ -22,11 +22,45 @@ public class CustomerCoupons : ICustomerCoupon
     {
         return _db.Customer_Coupons.Where(c => c.couponCode == couponCode).OrderByDescending(c=>c.customerId).ToList();
     }
-    public bool checkByCustomerandCode(int customerId,string couponCode)
+    public int checkByCustomerandCode(int customerId,string couponCode)
     {
         var data =  _db.Customer_Coupons.FirstOrDefault(c => c.couponCode == couponCode && c.customerId==customerId);
-        return data?.couponId!=null;
+    
+        return (int)((data?.couponId!=null)?data?.couponStatus:0);
     }
     
+    public string updateCouponStatus(int customerId,string couponCode)
+    {
+        var value = checkByCustomerandCode(customerId,couponCode);
+        if (value==1)
+        {
+             var list = _db.Customer_Coupons
+                  .Where(c => c.customerId == customerId)
+                  .ToList();
+            foreach (var item in list)
+            {
+                item.couponStatus = 3;
+            }
 
+            _db.SaveChanges();
+            return "Updated Successfully";
+        }
+        else
+        {
+            if (value == 3)
+            {
+                return "Coupon Already Used!";
+            }
+            else
+            {
+                return "OOPS! Record Not Updated!";   
+            }
+             
+        }
+       
+    }
+    public string createCoupons(CustomerCoupon customerCoupon)
+    {
+        return "Test";
+    }
 }

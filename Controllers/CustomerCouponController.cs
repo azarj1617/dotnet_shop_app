@@ -40,7 +40,18 @@ public class CustomerCouponController : ControllerBase
     public IActionResult checkByCustomerandCode(int id, string couponCode)
     {
         var customers = _repo.checkByCustomerandCode(id,couponCode);
-        var msg = (customers)?"Coupon Available for Given Customer":"Coupon Not Available for Given Customer";
+        var msg = (customers==1)?"Coupon Available for Given Customer":(customers==3)?"Coupon Already Used":"Coupon Not Available for Given Customer";
         return Ok(msg);
+    }
+    [HttpPost("updateCoupon/{customerId}/{couponCode}")]
+    public IActionResult updateCoupon(int customerId,string couponCode)
+    {
+        return Ok(_repo.updateCouponStatus(customerId,couponCode));
+    }
+    
+    [HttpPost("createCoupons")]
+    public IActionResult createCoupons(CustomerCoupon customerCoupon)
+    {
+        return Ok(_repo.createCoupons(customerCoupon));
     }
 }

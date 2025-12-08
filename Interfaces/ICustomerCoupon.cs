@@ -6,6 +6,8 @@ namespace shopping_app.Interfaces
         CustomerCoupon? checkCouponById(int id);
 
         List<CustomerCoupon> checkByCouponCode(string couponCode);
-        bool checkByCustomerandCode(int customerId,string couponCode);
+        int checkByCustomerandCode(int customerId,string couponCode);
+        string updateCouponStatus(int customerId,string couponCode);
+        string createCoupons(CustomerCoupon customerCoupon);
     }
 }
